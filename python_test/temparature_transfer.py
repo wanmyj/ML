@@ -17,9 +17,9 @@ else:
 
 
 TempStr = input()
-if TempStr[1:4] in ['RMB']:
-    C = eval(TempStr[4:]/6.78
+if TempStr[0:3] in ['RMB']:
+    C = eval(TempStr[3:])/6.78
     print("USD{:.2f}".format(C))
-elif TempStr[1:4] in ['USD']:
-    F = eval(TempStr[4:]*6.78
+elif TempStr[0:3] in ['USD']:
+    F = eval(TempStr[3:])*6.78
     print("RMB{:.2f}".format(F))

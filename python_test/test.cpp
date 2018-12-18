@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <iostream>
 using namespace std;
 /////////////////////////////////////////////////////
@@ -60,8 +61,42 @@ class CRectangle
         return 2*(w+h);
     }
 };
-
-
+class CEmployee
+{
+    private:
+        char szName[30];
+    public:
+        int salary;
+        void setName(const char *name);
+        void getName(char *name);
+        void averageBalary(CEmployee e1, CEmployee e2);
+};
+void CEmployee::setName(const char *name)
+{
+    strcpy(szName, name); //ok
+}
+void CEmployee::getName(char *name)
+{
+    strcpy(name, szName);
+}
+void CEmployee::averageBalary(CEmployee e1, CEmployee e2)
+{
+    salary = (e1.salary + e2.salary)/2;
+}
+//overload member function
+class Location
+{
+    private:
+        int x,y;
+    public:
+        void initial(int X=0, int Y=0);
+        void valueX(int val) { x=val; }
+        int valueX() {return x;}
+};
+void Location::initial(int X, int Y)
+{
+    x = X; y = Y;
+}
 //////////////////////////////////////////////////////
 
 
@@ -103,11 +138,22 @@ int main()
     SetValue() = 40;
     cout<<n<<endl;
     //////////////////////////////////////////////////////
+    // class
     int w, h;
     CRectangle r; //object
     cin >> w >> h;
     r.init(w, h);
     cout << r.Area() << endl << r.Parimeter();
+
+    CEmployee e;
+        // strcpy(e.szName, "Tom123"); //wrong it's private
+    e.setName("Tom");
+    e.salary = 5000;
+
+    //overload member function
+    Location A;
+    A.initial(5);
+    cout<<A.valueX();
     //////////////////////////////////////////////////////
     //////////////////////////////////////////////////////
 
