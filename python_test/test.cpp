@@ -97,6 +97,45 @@ void Location::initial(int X, int Y)
 {
     x = X; y = Y;
 }
+// constructor
+class Complex
+{
+    private:
+        double real, imag;
+    public:
+        void Set(double r, double i);
+        Complex(double r, double i);
+        Complex(double r);
+        Complex(Complex c1, Complex c2);
+};
+Complex::Complex(double r, double i)
+{
+    real = r; imag = i;
+}
+Complex::Complex(double r)
+{
+    real = r; imag = 0;
+}
+Complex::Complex(Complex c1, Complex c2)
+{
+    real = c1.real + c2.real;
+    imag = c1.imag + c2.imag;
+}
+// constructor in the use of string
+class CSample
+{
+        int x;
+    public:
+        CSample()
+        {
+            cout<<"Constructor 1 called"<<endl;
+        }
+        CSample(int n)
+        {
+            x = n;
+            cout<<"Constructor 2 called"<< endl;
+        }
+};
 //////////////////////////////////////////////////////
 
 
@@ -141,9 +180,10 @@ int main()
     // class
     int w, h;
     CRectangle r; //object
+    cout <<"class rectangle" << endl;
     cin >> w >> h;
     r.init(w, h);
-    cout << r.Area() << endl << r.Parimeter();
+    cout << r.Area() << endl << r.Parimeter()<<endl;
 
     CEmployee e;
         // strcpy(e.szName, "Tom123"); //wrong it's private
@@ -151,9 +191,28 @@ int main()
     e.salary = 5000;
 
     //overload member function
+    cout<< "overload member function"<<endl;
     Location A;
     A.initial(5);
-    cout<<A.valueX();
+    cout<<A.valueX()<<endl;
+
+    //constructor
+        // Complex c1; // default constructor will be called
+        // Complex *pc = new Complex; // default constructor will be called
+    Complex c1(2); // OK
+    Complex c3(2,4), c2(3,5);
+    Complex c4(c1, c2);
+    Complex *pc = new Complex(3,4);
+    
+    // constructor in the use of string
+    CSample array1[2]; // initialize with non-para function
+    cout << "step1" <<endl;
+    CSample array2[2] = {4,5};
+    cout << "step2" <<endl;
+    CSample array3[2] = {3};
+    cout << "step3" <<endl;
+    CSample *array4 = new CSample[2];
+    delete []array4;    
     //////////////////////////////////////////////////////
     //////////////////////////////////////////////////////
 

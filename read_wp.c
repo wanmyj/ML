@@ -34,15 +34,17 @@ void deleteSpace(char *str)
 
 int main () {
     FILE * fp;
-    fp = fopen ("FT02.plan", "r");
+    fp = fopen ("FT01.plan", "r");
     char str[200] = {'0'};
     double lat_lon_hgh[3][267] = {0.0};
     int i = 0, j = 0;
     while(fgets(str, 100, fp) != NULL) 
     {
         deleteSpace(str);
+        printf("%s\n", str); getchar();
         if (!strcmp(str, "\"params\":["))
         {
+            printf("In loop 1 %s\n", str); getchar();
             fgets(str, 100, fp);
             deleteSpace(str);
             char *temp  = (char*)malloc(sizeof(str));
@@ -69,7 +71,7 @@ int main () {
                         {
                             fgets(str, 100, fp);
                             deleteSpace(str);
-                            // printf("%s\n", str); getchar();
+                            //printf("%s\n", str); getchar();
                             lat_lon_hgh[0][j] = strtod(str, NULL);                            
 
                             fgets(str, 100, fp);
