@@ -121,6 +121,7 @@ Complex::Complex(Complex c1, Complex c2)
     real = c1.real + c2.real;
     imag = c1.imag + c2.imag;
 }
+
 // constructor in the use of string
 class CSample
 {
@@ -136,6 +137,16 @@ class CSample
             cout<<"Constructor 2 called"<< endl;
         }
 };
+//////////////////////////////////////////////////////
+class Test
+{
+    public:
+        Test(int n){} //constructor 1
+        Test(int n, int m) {} //constructor 2
+        Test(){} //constructor 3
+};
+
+//////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 
 
@@ -214,6 +225,11 @@ int main()
     CSample *array4 = new CSample[2];
     delete []array4;    
     //////////////////////////////////////////////////////
+    Test array1_t[3] = {1, Test(1, 2)};
+    Test array2_t[3] = {Test(2,3), Test(1,2), 3};
+    Test *pArray[3] = {new Test(4), new Test(1,2)}; // pArray is a string of pointer, not a object, which doesn't need to be initialized. 
+                                                    // In this case, we initialize objects in the first two addresses, in a way of 'new'.
+                                                    // Two objects were generated.
     //////////////////////////////////////////////////////
 
     return 0;
