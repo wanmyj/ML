@@ -531,6 +531,10 @@ void INDI_controller_CppModelClass::step()
    *  Bias: '<Root>/Bias2'
    *  Inport: '<Root>/ctrlsfc'
    */
+
+   cout << "after 6U" << rtb_d_o_e_CrUsingPrelookup4_e << endl;
+   cout << "last item d_o_a_DWORK1 = "<< INDI_controller_Cpp_DW.d_o_a_DWORK1<<endl;
+     cout << "polled4: " << INDI_controller_Cpp_ConstP.pooled4 << endl<<"-----------"<< endl;
   rtb_alpha_o1_i = plook_binpg(INDI_controller_Cpp_U.ctrlsfc.a + 0.2,
     INDI_controller_Cpp_ConstP.pooled4, 6U, &rtb_d_o_e_CrUsingPrelookup4_e,
     &INDI_controller_Cpp_DW.d_o_a_DWORK1);
@@ -605,8 +609,6 @@ void INDI_controller_CppModelClass::step()
   absxk = intrp3d_l(bpIndex_1, frac_1, INDI_controller_Cpp_ConstP.pooled9,
                     INDI_controller_Cpp_ConstP.pooled30);
 
-      cout << "step function check positon 4" << endl;
-
   /* Interpolation_n-D: '<S2>/d_o_e_Cn Using Prelookup5' */
   frac_2[0] = rtb_d_o_e_CrUsingPrelookup5;
   frac_2[1] = c;
@@ -648,8 +650,9 @@ void INDI_controller_CppModelClass::step()
    *  Bias: '<Root>/Bias4'
    *  Inport: '<Root>/ctrlsfc'
    */
-  cout << c << endl;
-  cout << INDI_controller_Cpp_DW.d_o_a_DWORK1_b << endl;
+   cout << "after 6U is c = " << c << endl;
+  cout <<"last item = "<< INDI_controller_Cpp_DW.d_o_a_DWORK1_b << endl;
+  cout << "polled4: " << INDI_controller_Cpp_ConstP.pooled4 << endl;
   rtb_alpha_o1_e = plook_binpg(INDI_controller_Cpp_U.ctrlsfc.a + -0.2,
     INDI_controller_Cpp_ConstP.pooled4, 6U, &c,
     &INDI_controller_Cpp_DW.d_o_a_DWORK1_b);
@@ -664,7 +667,6 @@ void INDI_controller_CppModelClass::step()
   bpIndex_4[2] = rtb_alpha_o1_e;
   rtb_d_o_e_CrUsingPrelookup4 = intrp3d_l(bpIndex_4, frac_4,
     INDI_controller_Cpp_ConstP.pooled5, INDI_controller_Cpp_ConstP.pooled29);
-      cout << "step function check positon 7" << endl;
 
   /* Bias: '<Root>/Bias5' incorporates:
    *  Inport: '<Root>/ctrlsfc'
