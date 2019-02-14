@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 
 
@@ -97,4 +98,9 @@ prettyPicture(clf, features_test, labels_test)
 plt.show()
 #########################################################xx
 
+=======
+import numpy as np
+from sklearn.naive_bayes import GaussianNB
+print 'Hello World'
+>>>>>>> Stashed changes
 

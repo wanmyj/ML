@@ -648,6 +648,8 @@ void INDI_controller_CppModelClass::step()
    *  Bias: '<Root>/Bias4'
    *  Inport: '<Root>/ctrlsfc'
    */
+  cout << c << endl;
+  cout << INDI_controller_Cpp_DW.d_o_a_DWORK1_b << endl;
   rtb_alpha_o1_e = plook_binpg(INDI_controller_Cpp_U.ctrlsfc.a + -0.2,
     INDI_controller_Cpp_ConstP.pooled4, 6U, &c,
     &INDI_controller_Cpp_DW.d_o_a_DWORK1_b);
