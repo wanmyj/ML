@@ -1,0 +1,1 @@
+g++  INDI_controller_Cpp.cpp INDI_controller_Cpp_data.cpp
